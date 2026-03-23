@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Portfolio</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Typography: Clean sans-serif for reading, elegant serif for headings */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff; /* Stark white gallery feel */
+            color: #1a1a1a;
+        }
+        h1, h2, h3, .serif {
+            font-family: 'Lora', serif;
+        }
+        
+        /* Subtle image hover effect to show interactivity without distracting from the art */
+        .art-card img {
+            transition: opacity 0.3s ease;
+        }
+        .art-card:hover img {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gray-200 selection:text-black">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="text-xl font-medium serif tracking-wide uppercase">[Artist Name]</a>
+            <div class="space-x-8 text-sm tracking-wide">
+                <a href="#about" class="hover:text-gray-500 transition">About</a>
+                <a href="#portfolio" class="hover:text-gray-500 transition">Selected Works</a>
+                <a href="#contact" class="hover:text-gray-500 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / About Section -->
+    <header id="about" class="pt-40 pb-24 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+        <div class="md:w-5/12">
+            <!-- Notice the local image path "img/portrait.jpg" -->
+            <img src="img/portrait.jpg" 
+                 alt="Artist portrait" 
+                 class="w-full object-cover aspect-[4/5] bg-gray-100"
+                 onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop'">
+            <p class="text-xs text-gray-400 mt-3 text-center">Studio view, 2026</p>
+        </div>
+        <div class="md:w-7/12 space-y-8">
+            <h1 class="text-5xl md:text-6xl font-medium leading-tight serif">Exploring the space between memory and medium.</h1>
+            <div class="space-y-4 text-gray-600 font-light leading-relaxed text-lg">
+                <p>
+                    I am a contemporary visual artist based in [City/Country]. My practice centers around [medium, e.g., oil on canvas, mixed media], investigating themes of [Theme 1] and [Theme 2]. 
+                </p>
+                <p>
+                    Drawing inspiration from [Inspiration, e.g., natural landscapes, brutalist architecture, personal heritage], my recent work seeks to challenge the viewer's perception of [Concept]. My works have been exhibited in [Local Gallery/Exhibition, if applicable].
+                </p>
+            </div>
+            <div class="pt-6">
+                <a href="#portfolio" class="inline-block border border-black text-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 tracking-wide text-sm uppercase">Explore Portfolio</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-gray-50/50 border-t border-gray-100 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-16">
+                <h2 class="text-3xl font-medium serif">Selected Works</h2>
+                <span class="text-sm text-gray-400">2023 &mdash; Present</span>
+            </div>
+            
+            <!-- Grid of 4 artworks -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
+                
+                <!-- Artwork 1 -->
+                <div class="art-card group cursor-pointer">
+                    <div class="mb-6 bg-gray-100">
+                        <!-- Local path: img/artwork1.jpg -->
+                        <img src="img/artwork1.jpg" 
+                             alt="Artwork 1" 
+                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
+                             onerror="this.src='https://images.unsplash.com/photo-1541961017774-22349e4a1262?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <h3 class="text-lg font-medium serif mb-1">Title of Piece One</h3>
+                    <p class="text-sm text-gray-500 mb-3">Oil on Canvas, 24" x 36" (2026)</p>
+                    <p class="text-gray-600 text-sm font-light leading-relaxed">A brief description of this specific piece. You can talk about the inspiration, the technique used, or what it represents within your broader body of work.</p>
+                </div>
+
+                <!-- Artwork 2 -->
+                <div class="art-card group cursor-pointer">
+                    <div class="mb-6 bg-gray-100">
+                        <!-- Local path: img/artwork2.jpg -->
+                        <img src="img/artwork2.jpg" 
+                             alt="Artwork 2" 
+                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
+                             onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <h3 class="text-lg font-medium serif mb-1">Title of Piece Two</h3>
+                    <p class="text-sm text-gray-500 mb-3">Digital Illustration (2025)</p>
+                    <p class="text-gray-600 text-sm font-light leading-relaxed">A description detailing the mood, color palette, or the specific story this digital painting is trying to convey to the audience.</p>
+                </div>
+
+                <!-- Artwork 3 -->
+                <div class="art-card group cursor-pointer">
+                    <div class="mb-6 bg-gray-100">
+                        <!-- Local path: img/artwork3.jpg -->
+                        <img src="img/artwork3.jpg" 
+                             alt="Artwork 3" 
+                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
+                             onerror="this.src='https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <h3 class="text-lg font-medium serif mb-1">Title of Piece Three</h3>
+                    <p class="text-sm text-gray-500 mb-3">Watercolor and Ink (2024)</p>
+                    <p class="text-gray-600 text-sm font-light leading-relaxed">Information about the third piece. Discussing the challenges of working with watercolor and how the ink complements the fluidity of the paint.</p>
+                </div>
+
+                <!-- Artwork 4 -->
+                <div class="art-card group cursor-pointer">
+                    <div class="mb-6 bg-gray-100">
+                        <!-- Local path: img/artwork4.jpg -->
+                        <img src="img/artwork4.jpg" 
+                             alt="Artwork 4" 
+                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
+                             onerror="this.src='https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?q=80&w=800&auto=format&fit=crop'">
+                    </div>
+                    <h3 class="text-lg font-medium serif mb-1">Title of Piece Four</h3>
+                    <p class="text-sm text-gray-500 mb-3">Mixed Media on Wood (2024)</p>
+                    <p class="text-gray-600 text-sm font-light leading-relaxed">Final description. Mentioning the materials gathered for this mixed media piece and the textural qualities it presents in person.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-medium serif mb-6">Inquiries & Contact</h2>
+        <p class="text-gray-600 font-light mb-12 max-w-xl mx-auto">
+            Currently accepting commissions and gallery inquiries. Please reach out via email to request a full catalogue of available works.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+            <!-- Primary Contact -->
+            <a href="mailto:artist@example.com" class="w-full sm:w-auto px-10 py-4 bg-black text-white hover:bg-gray-800 transition duration-300 text-sm tracking-wide uppercase">
+                Email Artist
+            </a>
+            <!-- Resume/CV Link -->
+            <a href="assets/artist-cv-2026.pdf" target="_blank" class="w-full sm:w-auto px-10 py-4 border border-gray-300 text-black hover:border-black transition duration-300 text-sm tracking-wide uppercase">
+                Download CV
+            </a>
+        </div>
+        
+        <!-- Social/Professional Links -->
+        <div class="mt-12 pt-12 border-t border-gray-100 flex justify-center space-x-8 text-sm text-gray-500">
+            <a href="#" class="hover:text-black transition">Instagram</a>
+            <a href="#" class="hover:text-black transition">Behance</a>
+            <a href="#" class="hover:text-black transition">LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pb-10 pt-4 text-center text-xs text-gray-400 font-light">
+        <p>&copy; <span id="year"></span> [Artist Name]. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
