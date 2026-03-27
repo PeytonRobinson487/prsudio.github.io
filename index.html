@@ -7,19 +7,23 @@
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Typography */
-        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap');
-        
+        /* Typography - Added Japanese Noto Fonts for beautiful rendering */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500&display=swap');
+
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans JP', sans-serif;
             background-color: #00041C; /* Dark Navy Background */
             color: #DCE6FF; /* Light Blue Text */
             overflow-x: hidden;
         }
         h1, h2, h3, .serif {
-            font-family: 'Lora', serif;
+            font-family: 'Lora', 'Noto Serif JP', serif;
         }
-        
+
+        /* Language Toggle Styles */
+        body.lang-en .jp { display: none; }
+        body.lang-jp .en { display: none; }
+
         /* New Hover Effect: Slight lift without altering colors/opacity */
         .art-image {
             transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -46,16 +50,17 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-[#DCE6FF] selection:text-[#00041C]">
+<body class="antialiased selection:bg-[#DCE6FF] selection:text-[#00041C] lang-en">
 
     <!-- Navigation -->
     <nav class="fixed w-full bg-[#00041C]/95 backdrop-blur-sm z-50 border-b border-[#DCE6FF]/10">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <a href="#" class="text-xl font-medium serif tracking-wide uppercase">Em Robin</a>
-            <div class="space-x-8 text-sm tracking-wide">
-                <a href="#portfolio" class="hover:opacity-70 transition">Works</a>
-                <a href="#cv" class="hover:opacity-70 transition">CV</a>
-                <a href="#contact" class="hover:opacity-70 transition">Contact</a>
+            <div class="space-x-6 md:space-x-8 text-sm tracking-wide flex items-center">
+                <a href="#portfolio" class="hover:opacity-70 transition"><span class="en">Works</span><span class="jp">作品</span></a>
+                <a href="#cv" class="hover:opacity-70 transition"><span class="en">CV</span><span class="jp">経歴</span></a>
+                <a href="#contact" class="hover:opacity-70 transition"><span class="en">Contact</span><span class="jp">連絡先</span></a>
+                <button id="lang-toggle" class="hover:bg-[#DCE6FF] hover:text-[#00041C] transition border border-[#DCE6FF] px-3 py-1 rounded-full text-xs font-bold tracking-widest ml-2 md:ml-4">JP</button>
             </div>
         </div>
     </nav>
@@ -65,36 +70,43 @@
         <header class="pt-40 pb-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
                 <h1 class="text-5xl md:text-7xl font-medium serif mb-4">
-                    <span class="font-bold not-italic">E</span><span class="italic font-light">m</span> 
+                    <span class="font-bold not-italic">E</span><span class="italic font-light">m</span>
                     <span class="font-bold not-italic">R</span><span class="italic font-light">obin</span>
                 </h1>
-                <p class="text-lg opacity-80 uppercase tracking-widest">Artist Portfolio</p>
+                <p class="text-lg opacity-80 uppercase tracking-widest"><span class="en">Artist Portfolio</span><span class="jp">ポートフォリオ</span></p>
             </div>
             <div class="space-y-6 text-lg leading-relaxed font-light opacity-90 border-l border-[#DCE6FF]/20 pl-8">
-                <h2 class="text-2xl serif mb-4">Artist Statement</h2>
-                <p>I built a career as a jewelry designer, but as my eye disease progressed, I shifted my path to the world of painting. My passion for creation never faded, and I now express the inner world of my mind on canvas.</p>
-                <p>It is my hope that viewers will see my work and feel they are not alone, finding a small sense of hope for tomorrow.</p>
+                <h2 class="text-2xl serif mb-4"><span class="en">Artist Statement</span><span class="jp">アーティスト・ステートメント</span></h2>
+                <p class="en">I built a career as a jewelry designer, but as my eye disease progressed, I shifted my path to the world of painting. My passion for creation never faded, and I now express the inner world of my mind on canvas.</p>
+                <p class="jp">ジュエリーデザイナーとしてキャリアを積んできましたが、眼の病気の進行に伴い、絵画の世界へ転向しました。創作への情熱が消えることはなく、現在は私の心の内なる世界をキャンバスに表現しています。</p>
+
+                <p class="en">It is my hope that viewers will see my work and feel they are not alone, finding a small sense of hope for tomorrow.</p>
+                <p class="jp">私の作品を見て、自分は一人ではないと感じ、明日に向けての小さな希望を見つけていただければ幸いです。</p>
             </div>
         </header>
     </div>
 
     <!-- Portfolio Section -->
     <main id="portfolio" class="py-16">
-        
+
         <!-- Crestfallen: Picture | Description -->
         <section class="py-16 px-6 max-w-6xl mx-auto reveal">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-1">
                     <img src="img/crest_em.webp"
                          loading="lazy"
-                         alt="Crestfallen" 
+                         alt="Crestfallen"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
                 <div class="order-2 space-y-4">
                     <h2 class="text-4xl serif mb-2">Crestfallen</h2>
-                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on Canvas<br>Size: 30” x 36” x 0.75”</p>
-                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
-                    <p class="font-light leading-relaxed opacity-90">Crestfallen" is about that feeling when you're completely down—a moment of a deep emotional fall. It shows the inner state of being sucked into a void's mouth. Even so, the piece carries a message that an inner strength will always pull you back up.</p>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">
+                        <span class="en">Acrylic on Canvas</span><span class="jp">キャンバスにアクリル</span><br>
+                        <span class="en">Size: 30” x 36” x 0.75”</span><span class="jp">サイズ: 30” x 36” x 0.75”</span>
+                    </p>
+                    <h3 class="text-xl font-medium mt-6 mb-2"><span class="en">Concept</span><span class="jp">コンセプト</span></h3>
+                    <p class="font-light leading-relaxed opacity-90 en">Crestfallen" is about that feeling when you're completely down—a moment of a deep emotional fall. It shows the inner state of being sucked into a void's mouth. Even so, the piece carries a message that an inner strength will always pull you back up.</p>
+                    <p class="font-light leading-relaxed opacity-90 jp">「Crestfallen（落胆）」は、完全に落ち込んだ時の感情、つまり深い感情的な落下の瞬間を表現しています。虚無の口に吸い込まれていく内面的な状態を示しています。それでも、この作品には、内なる強さが必ずあなたを引き上げてくれるというメッセージが込められています。</p>
                 </div>
             </div>
         </section>
@@ -104,14 +116,18 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1 space-y-4">
                     <h2 class="text-4xl serif mb-2">Strife’s End</h2>
-                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on canvas<br>Size: 24" x 36" x 0.75”</p>
-                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
-                    <p class="font-light leading-relaxed opacity-90">It conveys the liberation of the mind that comeｓ at the end of a lengthy struggle. While  everyone sometimes suffers and seems to lose their way, this piece expresses the conviction that "an answer will always be found." Throughout  the struggle, a guidepost awaits.</p>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">
+                        <span class="en">Acrylic on canvas</span><span class="jp">キャンバスにアクリル</span><br>
+                        <span class="en">Size: 24" x 36" x 0.75”</span><span class="jp">サイズ: 24" x 36" x 0.75”</span>
+                    </p>
+                    <h3 class="text-xl font-medium mt-6 mb-2"><span class="en">Concept</span><span class="jp">コンセプト</span></h3>
+                    <p class="font-light leading-relaxed opacity-90 en">It conveys the liberation of the mind that comeｓ at the end of a lengthy struggle. While  everyone sometimes suffers and seems to lose their way, this piece expresses the conviction that "an answer will always be found." Throughout  the struggle, a guidepost awaits.</p>
+                    <p class="font-light leading-relaxed opacity-90 jp">長い闘いの末に訪れる心の解放を伝えています。誰もが時に苦しみ、道を見失うように見えることがありますが、この作品は「必ず答えは見つかる」という信念を表現しています。闘いを通して、道しるべが待っているのです。</p>
                 </div>
                 <div class="order-1 md:order-2">
                     <img src="img/strife_em.webp"
                          loading="lazy"
-                         alt="Strife's End" 
+                         alt="Strife's End"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
             </div>
@@ -123,14 +139,18 @@
                 <div class="order-1">
                     <img src="img/time_em.webp"
                          loading="lazy"
-                         alt="Time and Trauma" 
+                         alt="Time and Trauma"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
                 <div class="order-2 space-y-4">
                     <h2 class="text-4xl serif mb-2">Time and Trauma</h2>
-                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on canvas<br>Size: 36” x 48” x 0.75”</p>
-                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
-                    <p class="font-light leading-relaxed opacity-90">My piece is an expression of the healing process of trauma. It visualizes the inner space where a "trauma hunter" resides. This trauma hunter is a part of me—my inner strength—that actively works to heal old wounds. While the journey to heal takes a long time and the effects of past trauma may always be present, the trauma hunter's presence means that trauma is no longer powerful. Through my work, I want to show that everyone has this strength within themselves, even if they aren't aware of it. This piece is a reminder that healing is a process, and we all possess the power to move forward.</p>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">
+                        <span class="en">Acrylic on canvas</span><span class="jp">キャンバスにアクリル</span><br>
+                        <span class="en">Size: 36” x 48” x 0.75”</span><span class="jp">サイズ: 36” x 48” x 0.75”</span>
+                    </p>
+                    <h3 class="text-xl font-medium mt-6 mb-2"><span class="en">Concept</span><span class="jp">コンセプト</span></h3>
+                    <p class="font-light leading-relaxed opacity-90 en">My piece is an expression of the healing process of trauma. It visualizes the inner space where a "trauma hunter" resides. This trauma hunter is a part of me—my inner strength—that actively works to heal old wounds. While the journey to heal takes a long time and the effects of past trauma may always be present, the trauma hunter's presence means that trauma is no longer powerful. Through my work, I want to show that everyone has this strength within themselves, even if they aren't aware of it. This piece is a reminder that healing is a process, and we all possess the power to move forward.</p>
+                    <p class="font-light leading-relaxed opacity-90 jp">私の作品は、トラウマの治癒過程を表現したものです。「トラウマ・ハンター」が存在する内なる空間を視覚化しています。このトラウマ・ハンターは私の一部であり、古い傷を癒すために積極的に働く私の内なる強さです。癒やしの旅には長い時間がかかり、過去のトラウマの影響は常に存在するかもしれませんが、トラウマ・ハンターの存在は、トラウマがもはや力を持たないことを意味します。この作品を通して、気づいていなくても、誰もが自分の中にこの強さを持っていることを示したいと思っています。この作品は、癒やしは一つの過程であり、私たちは皆、前に進む力を持っているということを思い出させてくれます。</p>
                 </div>
             </div>
         </section>
@@ -140,16 +160,24 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1 space-y-4">
                     <h2 class="text-4xl serif mb-2">M’eye</h2>
-                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on canvas<br>Size: 40" x 30"x 0.75”</p>
-                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
-                    <p class="font-light leading-relaxed opacity-90 mb-4">This piece is a self-portrait, painting my inner world. Due to Retinitis Pigmentosa, I am blind in my right eye and have a narrow field of vision in my left. There was a time when I hated my ugly, disease-affected eyes and resented my limitations. I have now accepted the reality, however, and depict my now beloved eyes as the central theme of this self-portrait.</p>
-                    <p class="font-light leading-relaxed opacity-90 mb-4">My vision is severely restricted, but one eye still functions, and my imagination will never fade. The beam of light symbolizes this constricted yet appreciated vision.</p>
-                    <p class="font-light leading-relaxed opacity-90">This painting embodies a strong will to move forward despite visual impairment. I hope this expression provides courage to others facing similar struggles or any of life’s difficulties.</p>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">
+                        <span class="en">Acrylic on canvas</span><span class="jp">キャンバスにアクリル</span><br>
+                        <span class="en">Size: 40" x 30"x 0.75”</span><span class="jp">サイズ: 40" x 30"x 0.75”</span>
+                    </p>
+                    <h3 class="text-xl font-medium mt-6 mb-2"><span class="en">Concept</span><span class="jp">コンセプト</span></h3>
+                    <p class="font-light leading-relaxed opacity-90 mb-4 en">This piece is a self-portrait, painting my inner world. Due to Retinitis Pigmentosa, I am blind in my right eye and have a narrow field of vision in my left. There was a time when I hated my ugly, disease-affected eyes and resented my limitations. I have now accepted the reality, however, and depict my now beloved eyes as the central theme of this self-portrait.</p>
+                    <p class="font-light leading-relaxed opacity-90 mb-4 jp">この作品は私の内なる世界を描いた自画像です。網膜色素変性症のため、私は右目が見えず、左目の視野も狭くなっています。病気に冒された醜い目を憎み、自分の限界を恨んだ時期もありました。しかし、今では現実を受け入れ、愛するようになった目をこの自画像の中心テーマとして描いています。</p>
+
+                    <p class="font-light leading-relaxed opacity-90 mb-4 en">My vision is severely restricted, but one eye still functions, and my imagination will never fade. The beam of light symbolizes this constricted yet appreciated vision.</p>
+                    <p class="font-light leading-relaxed opacity-90 mb-4 jp">視覚は厳しく制限されていますが、片目はまだ機能しており、私の想像力が色褪せることはありません。光の筋は、この制限されつつも感謝している視覚を象徴しています。</p>
+
+                    <p class="font-light leading-relaxed opacity-90 en">This painting embodies a strong will to move forward despite visual impairment. I hope this expression provides courage to others facing similar struggles or any of life’s difficulties.</p>
+                    <p class="font-light leading-relaxed opacity-90 jp">この絵は、視覚障害にもかかわらず前に進もうとする強い意志を体現しています。この表現が、同じような闘いや人生の困難に直面している他の人々に勇気を与えることを願っています。</p>
                 </div>
                 <div class="order-1 md:order-2">
                     <img src="img/m_em.webp"
                          loading="lazy"
-                         alt="M'eye" 
+                         alt="M'eye"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
             </div>
@@ -160,49 +188,49 @@
     <!-- CV Section (Lighter BG applied here) -->
     <div id="cv" class="bg-[#091332] w-full pt-20 pb-24">
         <section class="px-6 max-w-4xl mx-auto reveal">
-            <h2 class="text-4xl serif mb-12 text-center">CV and exhibition history</h2>
-            
+            <h2 class="text-4xl serif mb-12 text-center"><span class="en">CV and exhibition history</span><span class="jp">経歴および展示歴</span></h2>
+
             <div class="space-y-12">
                 <!-- 2025 -->
                 <div>
                     <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2">2025</h3>
                     <ul class="space-y-6 font-light">
                         <li>
-                            <p class="font-medium text-lg">October: Beyond Vision Art – Fall Show (Group Exhibition)</p>
-                            <p class="opacity-80">Dayton, OH</p>
-                            <p class="italic mt-1 text-[#DCE6FF]/70">Title: Strife’s End</p>
+                            <p class="font-medium text-lg"><span class="en">October: Beyond Vision Art – Fall Show (Group Exhibition)</span><span class="jp">10月: Beyond Vision Art – 秋季展（グループ展）</span></p>
+                            <p class="opacity-80"><span class="en">Dayton, OH</span><span class="jp">オハイオ州 デイトン</span></p>
+                            <p class="italic mt-1 text-[#DCE6FF]/70"><span class="en">Title: Strife’s End</span><span class="jp">作品名: Strife’s End</span></p>
                         </li>
                         <li>
-                            <p class="font-medium text-lg">September: The Art Equals Space Show (Group Exhibition)</p>
-                            <p class="opacity-80">Art Equals, Covington, KY</p>
-                            <p class="italic mt-1 text-[#DCE6FF]/70">Title: Time and Trauma</p>
+                            <p class="font-medium text-lg"><span class="en">September: The Art Equals Space Show (Group Exhibition)</span><span class="jp">9月: The Art Equals Space Show（グループ展）</span></p>
+                            <p class="opacity-80"><span class="en">Art Equals, Covington, KY</span><span class="jp">Art Equals（ケンタッキー州 コビントン）</span></p>
+                            <p class="italic mt-1 text-[#DCE6FF]/70"><span class="en">Title: Time and Trauma</span><span class="jp">作品名: Time and Trauma</span></p>
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- 2026 -->
                 <div>
                     <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2">2026</h3>
                     <ul class="space-y-6 font-light">
                         <li>
-                            <p class="font-medium text-lg">April-December: Accessible Expressions OHIO (Group Exhibition)</p>
-                            <p class="opacity-80">AEO Columbus, OH</p>
-                            <p class="italic mt-1 text-[#DCE6FF]/70">Title: M'Eye</p>
+                            <p class="font-medium text-lg"><span class="en">April-December: Accessible Expressions OHIO (Group Exhibition)</span><span class="jp">4月-12月: Accessible Expressions OHIO（グループ展）</span></p>
+                            <p class="opacity-80"><span class="en">AEO Columbus, OH</span><span class="jp">AEO オハイオ州 コロンバス</span></p>
+                            <p class="italic mt-1 text-[#DCE6FF]/70"><span class="en">Title: M'Eye</span><span class="jp">作品名: M'Eye</span></p>
                         </li>
                     </ul>
                 </div>
 
                 <!-- Upcoming -->
                 <div>
-                    <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2">Upcoming: AEO on Tour (Ohio)</h3>
-                    <p class="italic mb-4 text-[#DCE6FF]/70">Title: M'Eye</p>
+                    <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2"><span class="en">Upcoming: AEO on Tour (Ohio)</span><span class="jp">予定: AEO オン・ツアー（オハイオ州）</span></h3>
+                    <p class="italic mb-4 text-[#DCE6FF]/70"><span class="en">Title: M'Eye</span><span class="jp">作品名: M'Eye</span></p>
                     <ul class="space-y-3 font-light list-disc list-inside">
-                        <li>April 12 – June 7: Butler Institute of American Art, Youngstown</li>
-                        <li>July 12 – Sept 13: Beck Center for the Arts, Cleveland</li>
-                        <li>July 30 – Sept 4: Palmer Hall, Broad Street Presbyterian Church, Columbus</li>
-                        <li>Sept 26 – Nov 15: Massillon Museum (MassMu), Massillon</li>
-                        <li>Oct 1 – Nov 20: Wagnalls Memorial Library, Lithopolis</li>
-                        <li>Nov 23 – Dec 31: Artists' Open Studio, Norwalk</li>
+                        <li><span class="en">April 12 – June 7: Butler Institute of American Art, Youngstown</span><span class="jp">4月12日 – 6月7日: バトラー・アメリカン・アート美術館（ヤングスタウン）</span></li>
+                        <li><span class="en">July 12 – Sept 13: Beck Center for the Arts, Cleveland</span><span class="jp">7月12日 – 9月13日: ベック芸術センター（クリーブランド）</span></li>
+                        <li><span class="en">July 30 – Sept 4: Palmer Hall, Broad Street Presbyterian Church, Columbus</span><span class="jp">7月30日 – 9月4日: ブロードストリート長老教会 パーマーホール（コロンバス）</span></li>
+                        <li><span class="en">Sept 26 – Nov 15: Massillon Museum (MassMu), Massillon</span><span class="jp">9月26日 – 11月15日: マシロン博物館（マシロン）</span></li>
+                        <li><span class="en">Oct 1 – Nov 20: Wagnalls Memorial Library, Lithopolis</span><span class="jp">10月1日 – 11月20日: ワグナルス記念図書館（リスオポリス）</span></li>
+                        <li><span class="en">Nov 23 – Dec 31: Artists' Open Studio, Norwalk</span><span class="jp">11月23日 – 12月31日: アーティスツ・オープン・スタジオ（ノーウォーク）</span></li>
                     </ul>
                 </div>
             </div>
@@ -211,19 +239,20 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 px-6 max-w-4xl mx-auto text-center reveal border-t border-[#DCE6FF]/10">
-        <h2 class="text-4xl serif mb-6">Contact</h2>
+        <h2 class="text-4xl serif mb-6"><span class="en">Contact</span><span class="jp">お問い合わせ</span></h2>
         <p class="font-light mb-10 opacity-90 max-w-xl mx-auto">
-            Interested in purchasing an original piece, a commission, or simply wish to say hello?
+            <span class="en">Interested in purchasing an original piece, a commission, or simply wish to say hello?</span>
+            <span class="jp">原画の購入、制作のご依頼、または単なるご挨拶など、お気軽にご連絡ください。</span>
         </p>
-        
+
         <a href="mailto:topgun_lasilla@yahoo.com" class="inline-block px-10 py-4 border border-[#DCE6FF] text-[#DCE6FF] hover:bg-[#DCE6FF] hover:text-[#00041C] transition duration-300 text-sm tracking-wide uppercase">
-            Email Em Robin
+            <span class="en">Email Em Robin</span><span class="jp">メールを送る</span>
         </a>
     </section>
 
     <!-- Footer -->
     <footer class="pb-10 pt-4 text-center text-sm text-[#DCE6FF]/50 font-light">
-        <p>&copy; <span id="year"></span> Em Robin. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> Em Robin. <span class="en">All rights reserved.</span><span class="jp">無断複写・転載を禁じます。</span></p>
     </footer>
 
     <!-- Image Modal -->
@@ -236,6 +265,21 @@
     <script>
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Language Toggle Logic
+        const langToggle = document.getElementById('lang-toggle');
+        langToggle.addEventListener('click', () => {
+            const body = document.body;
+            if (body.classList.contains('lang-en')) {
+                body.classList.remove('lang-en');
+                body.classList.add('lang-jp');
+                langToggle.textContent = 'EN';
+            } else {
+                body.classList.remove('lang-jp');
+                body.classList.add('lang-en');
+                langToggle.textContent = 'JP';
+            }
+        });
 
         // Image Modal Logic
         const modal = document.getElementById('image-modal');
@@ -295,10 +339,10 @@
         // Intersection Observer for scroll animations
         document.addEventListener('DOMContentLoaded', () => {
             const reveals = document.querySelectorAll('.reveal');
-            
+
             const revealOptions = {
                 threshold: 0.15, // Trigger when 15% of the element is visible
-                rootMargin: "0px 0px -50px 0px" 
+                rootMargin: "0px 0px -50px 0px"
             };
 
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
