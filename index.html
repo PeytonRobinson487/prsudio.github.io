@@ -7,171 +7,262 @@
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Typography: Clean sans-serif for reading, elegant serif for headings */
+        /* Typography */
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap');
-        
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff; /* Stark white gallery feel */
-            color: #1a1a1a;
+            background-color: #00041C; /* Dark Navy Background */
+            color: #DCE6FF; /* Light Blue Text */
+            overflow-x: hidden;
         }
         h1, h2, h3, .serif {
             font-family: 'Lora', serif;
         }
-        
-        /* Subtle image hover effect to show interactivity without distracting from the art */
-        .art-card img {
-            transition: opacity 0.3s ease;
+
+        /* New Hover Effect: Slight lift without altering colors/opacity */
+        .art-image {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            backface-visibility: hidden;
         }
-        .art-card:hover img {
-            opacity: 0.9;
+        .art-image:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Initial Load Animations */
+        @keyframes slideRight {
+            from { opacity: 0; transform: translate3d(-20px, 0, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        @keyframes slideLeft {
+            from { opacity: 0; transform: translate3d(20px, 0, 0); }
+            to { opacity: 1; transform: translate3d(0, 0, 0); }
+        }
+        .animate-slide-right {
+            animation: slideRight 1s ease-out forwards;
+            backface-visibility: hidden; /* Fixes browser rendering glitch */
+        }
+        .animate-slide-left {
+            animation: slideLeft 1s ease-out forwards;
+            backface-visibility: hidden; /* Fixes browser rendering glitch */
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0);
+            transition: all 0.8s ease-out;
+            backface-visibility: hidden; /* Fixes browser rendering glitch */
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
         }
     </style>
 </head>
-<body class="antialiased selection:bg-gray-200 selection:text-black">
+<body class="antialiased selection:bg-[#DCE6FF] selection:text-[#00041C]">
 
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-sm z-50 border-b border-gray-100">
+    <nav class="fixed w-full bg-[#00041C]/95 backdrop-blur-sm z-50 border-b border-[#DCE6FF]/10">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <a href="#" class="text-xl font-medium serif tracking-wide uppercase">[Artist Name]</a>
+            <a href="#" class="text-xl font-medium serif tracking-wide uppercase">Em Robin</a>
             <div class="space-x-8 text-sm tracking-wide">
-                <a href="#about" class="hover:text-gray-500 transition">About</a>
-                <a href="#portfolio" class="hover:text-gray-500 transition">Selected Works</a>
-                <a href="#contact" class="hover:text-gray-500 transition">Contact</a>
+                <a href="#portfolio" class="hover:opacity-70 transition">Works</a>
+                <a href="#cv" class="hover:opacity-70 transition">CV</a>
+                <a href="#contact" class="hover:opacity-70 transition">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero / About Section -->
-    <header id="about" class="pt-40 pb-24 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-        <div class="md:w-5/12">
-            <!-- Notice the local image path "img/portrait.jpg" -->
-            <img src="img/portrait.jpg" 
-                 alt="Artist portrait" 
-                 class="w-full object-cover aspect-[4/5] bg-gray-100"
-                 onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800&auto=format&fit=crop'">
-            <p class="text-xs text-gray-400 mt-3 text-center">Studio view, 2026</p>
-        </div>
-        <div class="md:w-7/12 space-y-8">
-            <h1 class="text-5xl md:text-6xl font-medium leading-tight serif">Exploring the space between memory and medium.</h1>
-            <div class="space-y-4 text-gray-600 font-light leading-relaxed text-lg">
-                <p>
-                    I am a contemporary visual artist based in [City/Country]. My practice centers around [medium, e.g., oil on canvas, mixed media], investigating themes of [Theme 1] and [Theme 2]. 
-                </p>
-                <p>
-                    Drawing inspiration from [Inspiration, e.g., natural landscapes, brutalist architecture, personal heritage], my recent work seeks to challenge the viewer's perception of [Concept]. My works have been exhibited in [Local Gallery/Exhibition, if applicable].
-                </p>
+    <!-- Home Page / Artist Statement (Lighter BG applied here) -->
+    <div class="bg-[#091332] w-full">
+        <header class="pt-40 pb-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="animate-slide-right">
+                <h1 class="text-5xl md:text-7xl font-medium serif mb-4">Em Robin</h1>
+                <p class="text-lg opacity-80 uppercase tracking-widest">Artist Portfolio</p>
             </div>
-            <div class="pt-6">
-                <a href="#portfolio" class="inline-block border border-black text-black px-8 py-3 hover:bg-black hover:text-white transition duration-300 tracking-wide text-sm uppercase">Explore Portfolio</a>
+            <div class="animate-slide-left space-y-6 text-lg leading-relaxed font-light opacity-90 border-l border-[#DCE6FF]/20 pl-8">
+                <h2 class="text-2xl serif mb-4">Artist Statement</h2>
+                <p>I built a career as a jewelry designer, but as my eye disease progressed, I shifted my path to the world of painting. My passion for creation never faded, and I now express the inner world of my mind on canvas.</p>
+                <p>It is my hope that viewers will see my work and feel they are not alone, finding a small sense of hope for tomorrow.</p>
             </div>
-        </div>
-    </header>
+        </header>
+    </div>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-24 bg-gray-50/50 border-t border-gray-100 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex justify-between items-end mb-16">
-                <h2 class="text-3xl font-medium serif">Selected Works</h2>
-                <span class="text-sm text-gray-400">2023 &mdash; Present</span>
+    <main id="portfolio" class="py-16">
+
+        <!-- Crestfallen: Picture | Description -->
+        <section class="py-16 px-6 max-w-6xl mx-auto reveal">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-1">
+                    <img src="img/crest_em.jpg"
+                         alt="Crestfallen"
+                         class="w-full h-auto shadow-lg art-image">
+                </div>
+                <div class="order-2 space-y-4">
+                    <h2 class="text-4xl serif mb-2">Crestfallen</h2>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on Canvas<br>Size: W30” x H36” x D0.75”</p>
+                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
+                    <p class="font-light leading-relaxed opacity-90">Crestfallen" is about that feeling when you're completely down—a moment of a deep emotional fall. It shows the inner state of being sucked into a void's mouth. Even so, the piece carries a message that an inner strength will always pull you back up.</p>
+                </div>
             </div>
-            
-            <!-- Grid of 4 artworks -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
-                
-                <!-- Artwork 1 -->
-                <div class="art-card group cursor-pointer">
-                    <div class="mb-6 bg-gray-100">
-                        <!-- Local path: img/artwork1.jpg -->
-                        <img src="img/artwork1.jpg" 
-                             alt="Artwork 1" 
-                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
-                             onerror="this.src='https://images.unsplash.com/photo-1541961017774-22349e4a1262?q=80&w=800&auto=format&fit=crop'">
-                    </div>
-                    <h3 class="text-lg font-medium serif mb-1">Title of Piece One</h3>
-                    <p class="text-sm text-gray-500 mb-3">Oil on Canvas, 24" x 36" (2026)</p>
-                    <p class="text-gray-600 text-sm font-light leading-relaxed">A brief description of this specific piece. You can talk about the inspiration, the technique used, or what it represents within your broader body of work.</p>
-                </div>
+        </section>
 
-                <!-- Artwork 2 -->
-                <div class="art-card group cursor-pointer">
-                    <div class="mb-6 bg-gray-100">
-                        <!-- Local path: img/artwork2.jpg -->
-                        <img src="img/artwork2.jpg" 
-                             alt="Artwork 2" 
-                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
-                             onerror="this.src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?q=80&w=800&auto=format&fit=crop'">
-                    </div>
-                    <h3 class="text-lg font-medium serif mb-1">Title of Piece Two</h3>
-                    <p class="text-sm text-gray-500 mb-3">Digital Illustration (2025)</p>
-                    <p class="text-gray-600 text-sm font-light leading-relaxed">A description detailing the mood, color palette, or the specific story this digital painting is trying to convey to the audience.</p>
+        <!-- Strife's End: Description | Picture -->
+        <section class="py-16 px-6 max-w-6xl mx-auto reveal">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 space-y-4">
+                    <h2 class="text-4xl serif mb-2">Strife’s End</h2>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on canvas<br>Size: 24" x 36" x 0.75”</p>
+                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
+                    <p class="font-light leading-relaxed opacity-90">It conveys the liberation of the mind that comeｓ at the end of a lengthy struggle. While  everyone sometimes suffers and seems to lose their way, this piece expresses the conviction that "an answer will always be found." Throughout  the struggle, a guidepost awaits.</p>
                 </div>
-
-                <!-- Artwork 3 -->
-                <div class="art-card group cursor-pointer">
-                    <div class="mb-6 bg-gray-100">
-                        <!-- Local path: img/artwork3.jpg -->
-                        <img src="img/artwork3.jpg" 
-                             alt="Artwork 3" 
-                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
-                             onerror="this.src='https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=800&auto=format&fit=crop'">
-                    </div>
-                    <h3 class="text-lg font-medium serif mb-1">Title of Piece Three</h3>
-                    <p class="text-sm text-gray-500 mb-3">Watercolor and Ink (2024)</p>
-                    <p class="text-gray-600 text-sm font-light leading-relaxed">Information about the third piece. Discussing the challenges of working with watercolor and how the ink complements the fluidity of the paint.</p>
+                <div class="order-1 md:order-2">
+                    <img src="img/strife_em.jpg"
+                         alt="Strife's End"
+                         class="w-full h-auto shadow-lg art-image">
                 </div>
-
-                <!-- Artwork 4 -->
-                <div class="art-card group cursor-pointer">
-                    <div class="mb-6 bg-gray-100">
-                        <!-- Local path: img/artwork4.jpg -->
-                        <img src="img/artwork4.jpg" 
-                             alt="Artwork 4" 
-                             class="w-full h-auto object-contain max-h-[600px] shadow-sm"
-                             onerror="this.src='https://images.unsplash.com/photo-1580136608260-4eb11f4b24fe?q=80&w=800&auto=format&fit=crop'">
-                    </div>
-                    <h3 class="text-lg font-medium serif mb-1">Title of Piece Four</h3>
-                    <p class="text-sm text-gray-500 mb-3">Mixed Media on Wood (2024)</p>
-                    <p class="text-gray-600 text-sm font-light leading-relaxed">Final description. Mentioning the materials gathered for this mixed media piece and the textural qualities it presents in person.</p>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Time and Trauma: Picture | Description -->
+        <section class="py-16 px-6 max-w-6xl mx-auto reveal">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-1">
+                    <img src="img/time_em.jpg"
+                         alt="Time and Trauma"
+                         class="w-full h-auto shadow-lg art-image">
+                </div>
+                <div class="order-2 space-y-4">
+                    <h2 class="text-4xl serif mb-2">Time and Trauma</h2>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on canvas<br>Size: 36” x 48” x 0.75”</p>
+                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
+                    <p class="font-light leading-relaxed opacity-90">My piece is an expression of the healing process of trauma. It visualizes the inner space where a "trauma hunter" resides. This trauma hunter is a part of me—my inner strength—that actively works to heal old wounds. While the journey to heal takes a long time and the effects of past trauma may always be present, the trauma hunter's presence means that trauma is no longer powerful. Through my work, I want to show that everyone has this strength within themselves, even if they aren't aware of it. This piece is a reminder that healing is a process, and we all possess the power to move forward.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- M'eye: Description | Picture -->
+        <section class="py-16 px-6 max-w-6xl mx-auto reveal">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 space-y-4">
+                    <h2 class="text-4xl serif mb-2">M’eye</h2>
+                    <p class="text-sm opacity-80 uppercase tracking-wide">Acrylic on canvas<br>Size: 40" x 30"x 0.75”</p>
+                    <h3 class="text-xl font-medium mt-6 mb-2">Concept</h3>
+                    <p class="font-light leading-relaxed opacity-90 mb-4">This piece is a self-portrait, painting my inner world. Due to Retinitis Pigmentosa, I am blind in my right eye and have a narrow field of vision in my left. There was a time when I hated my ugly, disease-affected eyes and resented my limitations. I have now accepted the reality, however, and depict my now beloved eyes as the central theme of this self-portrait.</p>
+                    <p class="font-light leading-relaxed opacity-90 mb-4">My vision is severely restricted, but one eye still functions, and my imagination will never fade. The beam of light symbolizes this constricted yet appreciated vision.</p>
+                    <p class="font-light leading-relaxed opacity-90">This painting embodies a strong will to move forward despite visual impairment. I hope this expression provides courage to others facing similar struggles or any of life’s difficulties.</p>
+                </div>
+                <div class="order-1 md:order-2">
+                    <img src="img/m_em.jpg"
+                         alt="M'eye"
+                         class="w-full h-auto shadow-lg art-image">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- CV Section (Lighter BG applied here) -->
+    <div id="cv" class="bg-[#091332] w-full pt-20 pb-24">
+        <section class="px-6 max-w-4xl mx-auto reveal">
+            <h2 class="text-4xl serif mb-12 text-center">CV and exhibition history</h2>
+
+            <div class="space-y-12">
+                <!-- 2025 -->
+                <div>
+                    <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2">2025</h3>
+                    <ul class="space-y-6 font-light">
+                        <li>
+                            <p class="font-medium text-lg">October: Beyond Vision Art – Fall Show (Group Exhibition)</p>
+                            <p class="opacity-80">Dayton, OH</p>
+                            <p class="italic mt-1 text-[#DCE6FF]/70">Title: Strife’s End</p>
+                        </li>
+                        <li>
+                            <p class="font-medium text-lg">September: The Art Equals Space Show (Group Exhibition)</p>
+                            <p class="opacity-80">Art Equals, Covington, KY</p>
+                            <p class="italic mt-1 text-[#DCE6FF]/70">Title: Time and Trauma</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 2026 -->
+                <div>
+                    <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2">2026</h3>
+                    <ul class="space-y-6 font-light">
+                        <li>
+                            <p class="font-medium text-lg">April-December: Accessible Expressions OHIO (Group Exhibition)</p>
+                            <p class="opacity-80">AEO Columbus, OH</p>
+                            <p class="italic mt-1 text-[#DCE6FF]/70">Title: M'Eye</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Upcoming -->
+                <div>
+                    <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2">Upcoming: AEO on Tour (Ohio)</h3>
+                    <p class="italic mb-4 text-[#DCE6FF]/70">Title: M'Eye</p>
+                    <ul class="space-y-3 font-light list-disc list-inside">
+                        <li>April 12 – June 7: Butler Institute of American Art, Youngstown</li>
+                        <li>July 12 – Sept 13: Beck Center for the Arts, Cleveland</li>
+                        <li>July 30 – Sept 4: Palmer Hall, Broad Street Presbyterian Church, Columbus</li>
+                        <li>Sept 26 – Nov 15: Massillon Museum (MassMu), Massillon</li>
+                        <li>Oct 1 – Nov 20: Wagnalls Memorial Library, Lithopolis</li>
+                        <li>Nov 23 – Dec 31: Artists' Open Studio, Norwalk</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-32 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-3xl font-medium serif mb-6">Inquiries & Contact</h2>
-        <p class="text-gray-600 font-light mb-12 max-w-xl mx-auto">
-            Currently accepting commissions and gallery inquiries. Please reach out via email to request a full catalogue of available works.
+    <section id="contact" class="py-24 px-6 max-w-4xl mx-auto text-center reveal border-t border-[#DCE6FF]/10">
+        <h2 class="text-4xl serif mb-6">Contact</h2>
+        <p class="font-light mb-10 opacity-90 max-w-xl mx-auto">
+            Interested in purchasing an original piece, a commission, or simply wish to say hello?
         </p>
-        
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-            <!-- Primary Contact -->
-            <a href="mailto:artist@example.com" class="w-full sm:w-auto px-10 py-4 bg-black text-white hover:bg-gray-800 transition duration-300 text-sm tracking-wide uppercase">
-                Email Artist
-            </a>
-            <!-- Resume/CV Link -->
-            <a href="assets/artist-cv-2026.pdf" target="_blank" class="w-full sm:w-auto px-10 py-4 border border-gray-300 text-black hover:border-black transition duration-300 text-sm tracking-wide uppercase">
-                Download CV
-            </a>
-        </div>
-        
-        <!-- Social/Professional Links -->
-        <div class="mt-12 pt-12 border-t border-gray-100 flex justify-center space-x-8 text-sm text-gray-500">
-            <a href="#" class="hover:text-black transition">Instagram</a>
-            <a href="#" class="hover:text-black transition">Behance</a>
-            <a href="#" class="hover:text-black transition">LinkedIn</a>
-        </div>
+
+        <a href="mailto:topgun_lasilla@yahoo.com" class="inline-block px-10 py-4 border border-[#DCE6FF] text-[#DCE6FF] hover:bg-[#DCE6FF] hover:text-[#00041C] transition duration-300 text-sm tracking-wide uppercase">
+            Email Em Robin
+        </a>
     </section>
 
     <!-- Footer -->
-    <footer class="pb-10 pt-4 text-center text-xs text-gray-400 font-light">
-        <p>&copy; <span id="year"></span> [Artist Name]. All rights reserved.</p>
+    <footer class="pb-10 pt-4 text-center text-sm text-[#DCE6FF]/50 font-light">
+        <p>&copy; <span id="year"></span> Em Robin. All rights reserved.</p>
     </footer>
 
+    <!-- Script for Scroll Reveal Animations -->
     <script>
+        // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOptions = {
+                threshold: 0.15, // Trigger when 15% of the element is visible
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); // Stop observing once revealed
+                    }
+                });
+            }, revealOptions);
+
+            reveals.forEach(reveal => {
+                revealOnScroll.observe(reveal);
+            });
+        });
     </script>
 </body>
 </html>
