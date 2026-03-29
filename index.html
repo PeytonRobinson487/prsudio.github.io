@@ -9,7 +9,7 @@
     <style>
         /* Typography - Added Japanese Noto Fonts for beautiful rendering */
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500&display=swap');
-
+        
         body {
             font-family: 'Inter', 'Noto Sans JP', sans-serif;
             background-color: #00041C; /* Dark Navy Background */
@@ -23,7 +23,7 @@
         /* Language Toggle Styles */
         body.lang-en .jp { display: none; }
         body.lang-jp .en { display: none; }
-
+        
         /* Image Protection: Prevent highlighting and dragging */
         img {
             -webkit-user-select: none;
@@ -78,7 +78,7 @@
     <div class="bg-[#091332] w-full">
         <header class="pt-40 pb-24 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h1 class="text-5xl md:text-5xl font-small serif mb-4">絵夢ロビン<h1>
+                <div class="text-3xl md:text-5xl font-medium serif mb-2 opacity-90">絵夢ロビン</div>
                 <h1 class="text-5xl md:text-7xl font-medium serif mb-4">
                     <span class="font-bold not-italic">E</span><span class="italic font-light">m</span>
                     <span class="font-bold not-italic">R</span><span class="italic font-light">obin</span>
@@ -89,7 +89,7 @@
                 <h2 class="text-2xl serif mb-4"><span class="en">Artist Statement</span><span class="jp">アーティスト・ステートメント</span></h2>
                 <p class="en">I built a career as a jewelry designer, but as my eye disease progressed, I shifted my path to the world of painting. My passion for creation never faded, and I now express the inner world of my mind on canvas.</p>
                 <p class="jp">ジュエリーデザイナーとしてキャリアを積んできましたが、眼の病気の進行に伴い、絵画の世界へ転向しました。創作への情熱が消えることはなく、現在は私の心の内なる世界をキャンバスに表現しています。</p>
-
+                
                 <p class="en">It is my hope that viewers will see my work and feel they are not alone, finding a small sense of hope for tomorrow.</p>
                 <p class="jp">私の作品を見て、自分は一人ではないと感じ、明日に向けての小さな希望を見つけていただければ幸いです。</p>
             </div>
@@ -98,14 +98,14 @@
 
     <!-- Portfolio Section -->
     <main id="portfolio" class="py-16">
-
+        
         <!-- Crestfallen: Picture | Description -->
         <section class="py-16 px-6 max-w-6xl mx-auto reveal">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-1">
                     <img src="img/crest_em.webp"
                          loading="lazy"
-                         alt="Crestfallen"
+                         alt="Crestfallen" 
                          draggable="false"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
@@ -137,8 +137,8 @@
                 </div>
                 <div class="order-1 md:order-2">
                     <img src="img/strife_em.webp"
-                         loading="lazy"
-                         alt="Strife's End"
+                         loading="lazy" 
+                         alt="Strife's End" 
                          draggable="false"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
@@ -151,7 +151,7 @@
                 <div class="order-1">
                     <img src="img/time_em.webp"
                          loading="lazy"
-                         alt="Time and Trauma"
+                         alt="Time and Trauma" 
                          draggable="false"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
@@ -180,17 +180,17 @@
                     <h3 class="text-xl font-medium mt-6 mb-2"><span class="en">Concept</span><span class="jp">コンセプト</span></h3>
                     <p class="font-light leading-relaxed opacity-90 mb-4 en">This piece is a self-portrait, painting my inner world. Due to Retinitis Pigmentosa, I am blind in my right eye and have a narrow field of vision in my left. There was a time when I hated my ugly, disease-affected eyes and resented my limitations. I have now accepted the reality, however, and depict my now beloved eyes as the central theme of this self-portrait.</p>
                     <p class="font-light leading-relaxed opacity-90 mb-4 jp">この作品は私の内なる世界を描いた自画像です。網膜色素変性症のため、私は右目が見えず、左目の視野も狭くなっています。病気に冒された醜い目を憎み、自分の限界を恨んだ時期もありました。しかし、今では現実を受け入れ、愛するようになった目をこの自画像の中心テーマとして描いています。</p>
-
+                    
                     <p class="font-light leading-relaxed opacity-90 mb-4 en">My vision is severely restricted, but one eye still functions, and my imagination will never fade. The beam of light symbolizes this constricted yet appreciated vision.</p>
                     <p class="font-light leading-relaxed opacity-90 mb-4 jp">視覚は厳しく制限されていますが、片目はまだ機能しており、私の想像力が色褪せることはありません。光の筋は、この制限されつつも感謝している視覚を象徴しています。</p>
-
+                    
                     <p class="font-light leading-relaxed opacity-90 en">This painting embodies a strong will to move forward despite visual impairment. I hope this expression provides courage to others facing similar struggles or any of life’s difficulties.</p>
                     <p class="font-light leading-relaxed opacity-90 jp">この絵は、視覚障害にもかかわらず前に進もうとする強い意志を体現しています。この表現が、同じような闘いや人生の困難に直面している他の人々に勇気を与えることを願っています。</p>
                 </div>
                 <div class="order-1 md:order-2">
                     <img src="img/m_em.webp"
                          loading="lazy"
-                         alt="M'eye"
+                         alt="M'eye" 
                          draggable="false"
                          class="w-full h-auto shadow-lg art-image">
                 </div>
@@ -203,7 +203,7 @@
     <div id="cv" class="bg-[#091332] w-full pt-20 pb-24">
         <section class="px-6 max-w-4xl mx-auto reveal">
             <h2 class="text-4xl serif mb-12 text-center"><span class="en">CV and exhibition history</span><span class="jp">経歴および展示歴</span></h2>
-
+            
             <div class="space-y-12">
                 <!-- 2025 -->
                 <div>
@@ -221,7 +221,7 @@
                         </li>
                     </ul>
                 </div>
-
+                
                 <!-- 2026 -->
                 <div>
                     <h3 class="text-2xl serif mb-6 border-b border-[#DCE6FF]/20 pb-2">2026</h3>
@@ -258,7 +258,7 @@
             <span class="en">Interested in purchasing an original piece, a commission, or simply wish to say hello?</span>
             <span class="jp">原画の購入、制作のご依頼、または単なるご挨拶など、お気軽にご連絡ください。</span>
         </p>
-
+        
         <a href="mailto:topgun_lasilla@yahoo.com" class="inline-block px-10 py-4 border border-[#DCE6FF] text-[#DCE6FF] hover:bg-[#DCE6FF] hover:text-[#00041C] transition duration-300 text-sm tracking-wide uppercase">
             <span class="en">Email Em Robin</span><span class="jp">メールを送る</span>
         </a>
@@ -363,7 +363,7 @@
 
             const revealOptions = {
                 threshold: 0.15, // Trigger when 15% of the element is visible
-                rootMargin: "0px 0px -50px 0px"
+                rootMargin: "0px 0px -50px 0px" 
             };
 
             const revealOnScroll = new IntersectionObserver(function(entries, observer) {
